@@ -7,9 +7,6 @@ class Sqlite3Database {
 	private $db;
 
 	public function __construct(string $dir, Main $main){
-		$this->main = $main;
-		$this->settings = $this->main->getSettings();
-
 		$this->db = new \SQLite3($dir."user.sqlite");
 		$this->db->exec("CREATE TABLE IF NOT EXISTS lvdata (
 			name TEXT NOT NULL PRIMARY KEY,
