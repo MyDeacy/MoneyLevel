@@ -4,7 +4,7 @@
 
 ## Notice
 旧バージョン(YAML保存版)からのデータベースの引越しが可能です。  
-こちらをご使用ください<https://github.com/gigantessbeta/TransferData-MoneyLevel>
+こちらをご使用ください<https://github.com/gigantessbeta/TransferData-MoneyLevel/releases/tag/MoneyLevel>
   
 ## Description
 
