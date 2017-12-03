@@ -5,12 +5,13 @@ namespace RuinPray\MoneyLevel;
 use pocketmine\plugin\PluginBase;
 use RuinPray\MoneyLevel\EventListener;
 use RuinPray\MoneyLevel\Database\{Sqlite3Database,ConfigLoader};
+use RuinPray\MoneyLevel\Events\{MoneyLvRegisterEvent, MoneyLvChangeEvent};
 use pocketmine\Player;
 use pocketmine\utils\Utils;
 
 class Main extends PluginBase {
 
-	public $version = "RE-CREATE1.0";
+	public $version = "RE-CREATE1.1";
 	
 	private $msg = [];
 	public $tag = []; //競合防止
@@ -38,7 +39,7 @@ class Main extends PluginBase {
 		$this->registerCommands();
 		$this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);
 		if($this->checkUpdate() !== $this->version){
-			$this->getLogger->notice("最新バージョンがリリースされています！ https://github.com/gigantessbeta/MoneyLevel");
+			$this->getLogger()->notice("最新バージョンがリリースされています！ https://github.com/gigantessbeta/MoneyLevel/releases");
 		}
 	}
 
@@ -52,8 +53,11 @@ class Main extends PluginBase {
 
 
 
-	public function registerUser(string $name){
-		$this->db->registerUser($name);
+	public function registerUser(string $name, $case = "other"){
+		$this->getServer()->getPluginManager()->callEvent($event = new MoneyLvRegisterEvent($this, $name, $case));
+		if(!$event->isCancelled()){
+			$this->db->registerUser($name);
+		}
 	}
 
 	public function getLv(string $name){
@@ -65,10 +69,13 @@ class Main extends PluginBase {
 	}
 
 
-	public function setLv(string $name, int $lv, $tagchange = false){
-		$this->db->setLv(strtolower($name), $lv);
-		if($tagchange === true){
-			$this->setLvTag($this->getServer()->getPlayer($name), $lv, true);
+	public function setLv(string $name, int $lv, $tagchange = false, $case = "other"){
+		$this->getServer()->getPluginManager()->callEvent($event = new MoneyLvChangeEvent($this, $name, $lv, $this->getLv($name), $case));
+		if(!$event->isCancelled()){
+			$this->db->setLv(strtolower($name), $lv);
+			if($tagchange === true){
+				$this->setLvTag($this->getServer()->getPlayer($name), $lv, true);
+			}
 		}
 	}
 

@@ -32,7 +32,7 @@ class SetlvCommand extends PluginCommand implements CommandExecutor {
 			if($main->getServer()->getPlayer($args[0]) !== null){
 				$bool = true;
 			}
-			$main->setLv((string)$args[0], (int)$args[1], $bool);
+			$main->setLv((string)$args[0], (int)$args[1], $bool, "main-setlvcommand");
 			$sender->sendMessage($main->getReplacedText("command.setlv.success", [$args[0], (int)$args[1]]));
 		}else{
 			$sender->sendMessage($main->getReplacedText("error.notfound", [$args[0]]));

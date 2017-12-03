@@ -70,4 +70,18 @@ class Sqlite3Database {
 		}
 		return $data;
 	}
+
+	/*
+	 * データ削除用関数(本プラグイン内では使用しません。)
+	*/
+
+	public function delUserData(string $name): bool{
+		if($this->getLv($name) !== false){
+			$value = "DELETE FROM lvdata WHERE name = :name";
+			$db = $this->db->prepare($value);
+			$db->execute();
+			return true;
+		}
+		return false;
+	}
 }

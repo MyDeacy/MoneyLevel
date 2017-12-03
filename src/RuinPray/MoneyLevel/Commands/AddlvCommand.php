@@ -33,7 +33,7 @@ class AddlvCommand extends PluginCommand implements CommandExecutor {
 			if($main->getServer()->getPlayer($args[0]) !== null){
 				$bool = true;
 			}
-			$main->setLv($args[0], $value, $bool);
+			$main->setLv($args[0], $value, $bool, "main-addlvcommand");
 			$sender->sendMessage($main->getReplacedText("command.addlv.success", [$args[0], (int)$args[1], $value]));
 		}else{
 			$sender->sendMessage($main->getReplacedText("error.notfound", [$args[0]]));

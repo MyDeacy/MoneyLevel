@@ -31,7 +31,7 @@ class LvupCommand extends PluginCommand implements CommandExecutor {
 					$main->eco->reduceMoney($name, $price);
 					$lv = $main->getLv($name) + $args[0];
 
-					$main->setLv($name, $lv, true);
+					$main->setLv($name, $lv, true, "main-lvupcommand");
 					$sender->sendMessage($main->getReplacedText("command.lvup.success.sender", [$price, $lv]));
 
 					if($setting["broadcast-notice"] === true){

@@ -1,6 +1,6 @@
 name: MoneyLevel
 main: RuinPray\MoneyLevel\Main
-version: RE-CREATE1.0
+version: RE-CREATE1.1
 load: POSTWORLD
 author: RuinPray
 description: moneylevel
