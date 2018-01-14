@@ -1,0 +1,7 @@
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/gigantessbeta/MoneyLevel
+branches:
+- master
+projects:
+  MoneyLevel:
+    path: ""
+...
