@@ -3,5 +3,6 @@ branches:
 - master
 projects:
   MoneyLevel:
-    path: "images/image.jpg"
+    path: ""
+    icon: "images/image.jpg"
 ...
