@@ -3,5 +3,5 @@ branches:
 - master
 projects:
   MoneyLevel:
-    path: ""
+    path: "https://raw.githubusercontent.com/gigantessbeta/MoneyLevel/master/images/image.jpg"
 ...
