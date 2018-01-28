@@ -1,6 +1,6 @@
 # MoneyLevel
 
-![image](https://raw.githubusercontent.com/gigantessbeta/MoneyLevel/master/images/image.jpg)
+![image](https://raw.githubusercontent.com/RuinPray/MoneyLevel/master/images/image.jpg)
 
 ## Notice
 旧バージョン(YAML保存版)からのデータベースの引越しが可能です。  
