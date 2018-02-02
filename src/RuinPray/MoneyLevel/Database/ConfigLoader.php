@@ -17,7 +17,8 @@ class ConfigLoader extends PluginBase {
 		$this->c = new Config($this->m->getDataFolder() . "config.yml", Config::YAML, [
 			'up-required-money' => 1000,
 			'toplv-enable-op' => false,
-			'broadcast-notice' => true
+			'broadcast-notice' => true,
+			'lang' => "jpn"
 		]);
 	}
 

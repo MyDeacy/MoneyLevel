@@ -30,9 +30,10 @@ class Main extends PluginBase {
 
 		$this->eco = $this->getServer()->getPluginManager()->getPlugin("EconomyAPI");
 
-		$this->dir = __DIR__."/TextResource/messages.ini";
 
-		if(!$this->loadMessageFile()){
+		$dir = __DIR__."/TextResource/messages";
+
+		if(!$this->loadMessageFile($dir)){
 			$this->getLogger()->emergency(">>> メッセージファイルの読み込みに失敗しました。");
 			$this->getServer()-forceShutdown();
 		}
@@ -97,8 +98,11 @@ class Main extends PluginBase {
 
 
 
-	private function loadMessageFile(): bool{
-		$this->msg = parse_ini_file($this->dir);
+	private function loadMessageFile(string $dir): bool{
+		if($this->cf->getSettings()["lang"] === "eng"){
+			$dir = $dir."_eng";
+		}
+			$this->msg = parse_ini_file($dir.".ini");
 		return true;
 	}
 
