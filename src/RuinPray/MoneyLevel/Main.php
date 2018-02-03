@@ -147,11 +147,11 @@ class Main extends PluginBase {
 	private function registerCommands(){
 		$this->getServer()->getCommandMap()->register("moneylevel", new Commands\LvupCommand($this));
 		$this->getServer()->getCommandMap()->register('moneylevel', new Commands\ToplvCommand($this));
-		$this->getServer()->getCommandMap()->register("moneylevel", new Commands\ViewLvCommand($this));
+		$this->getServer()->getCommandMap()->register("moneylevel", new Commands\ViewlvCommand($this));
 		$this->getServer()->getCommandMap()->register('moneylevel', new Commands\SetlvCommand($this));
 		$this->getServer()->getCommandMap()->register("moneylevel", new Commands\TakelvCommand($this));
 		$this->getServer()->getCommandMap()->register('moneylevel', new Commands\AddlvCommand($this));
-		$this->getServer()->getCommandMap()->register('moneylevel', new Commands\lvhelpCommand($this));
+		$this->getServer()->getCommandMap()->register('moneylevel', new Commands\LvhelpCommand($this));
 		
 	}
 } 
