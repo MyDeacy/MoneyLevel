@@ -1,6 +1,6 @@
 name: MoneyLevel
 main: RuinPray\MoneyLevel\Main
-version: RE-CREATE1.2
+version: RE-CREATE1.2.1
 load: POSTWORLD
 author: RuinPray
 description: moneylevel
@@ -18,6 +18,7 @@ api:
 - 3.0.0-ALPHA8
 - 3.0.0-ALPHA9
 - 3.0.0-ALPHA10
+- 3.0.0-ALPHA11
 permissions:
  mlcmdop:
   default: op

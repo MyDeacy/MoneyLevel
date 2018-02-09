@@ -11,7 +11,7 @@ use pocketmine\utils\Utils;
 
 class Main extends PluginBase {
 
-	public $version = "RE-CREATE1.1";
+	public $version = "RE-CREATE1.2.1";
 	
 	private $msg = [];
 	public $tag = []; //競合防止
