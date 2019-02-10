@@ -1,24 +1,43 @@
 name: MoneyLevel
-main: RuinPray\MoneyLevel\Main
-version: RE-CREATE1.2.1
-load: POSTWORLD
-author: RuinPray
-description: moneylevel
-api:
-- 2.0.0
-- 2.1.0
-- 3.0.0
-- 3.0.0-ALPHA1
-- 3.0.0-ALPHA2
-- 3.0.0-ALPHA3
-- 3.0.0-ALPHA4
-- 3.0.0-ALPHA5
-- 3.0.0-ALPHA6
-- 3.0.0-ALPHA7
-- 3.0.0-ALPHA8
-- 3.0.0-ALPHA9
-- 3.0.0-ALPHA10
-- 3.0.0-ALPHA11
+api: ["3.6"]
+main: mydeacy\moneylevel\MoneyLevel
+version: RE-CREATE2.0.0
+author: MyDeacy
+loadBefore: ["EconomyAPI"]
+depend: ["EconomyAPI"]
+load: STARTUP
+description: "Economy level plugin"
+commands:
+  lvup:
+    description: "Level up!"
+    usage: "/lvup {amount}"
+    permission: moneylevel.lvup
+  viewlv:
+    description: "view level"
+    usage: "/viewlv {target}"
+    permission: moneylevel.viewlv
+  toplv:
+    description: "Level Ranking"
+    usage: "/toplv {page}"
+    permission: moneylevel.toplv
+  lvhelp:
+    description: "MoneyLevel's help"
+    usage: "/lvhelp"
+    permission: moneylevel.lvhelp
+  setlv:
+    description: "Set Level"
+    usage: "/setlv {target} {amount}"
+    permission: moneylevel.setlv
+
 permissions:
- mlcmdop:
-  default: op
+  moneylevel.*:
+    default: op
+    children:
+      moneylevel.lvup:
+        default: true
+      moneylevel.viewlv:
+        default: true
+      moneylevel.toplv:
+        default: true
+      moneylevel.lvhelp:
+        default: true
