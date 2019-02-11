@@ -90,14 +90,9 @@ class MoneyLevelAPI implements APIService {
 		$player->setDisplayName($tag.$displayTag);
 	}
 
-	public function clearTag(String $name): void{
-		unset($this->tag[$name]);
-	}
-
-	function noticeAll(Player $player, int $level): void{
+	public function noticeAll(Player $player, int $level): void{
 		Server::getInstance()
 			->broadcastTip(($this->language->getReplacedText("command.lvup.success.broadcast",
 				[$player->getName(), $level], false)));
 	}
-
 }

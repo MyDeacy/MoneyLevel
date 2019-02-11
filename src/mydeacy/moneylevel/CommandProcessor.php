@@ -46,7 +46,11 @@ class CommandProcessor {
 							[$config->get("up-required-money")]));
 						return true;
 					}
-					$economy->reduceMoney($name, $price);
+					try{
+						$economy->reduceMoney($name, $price);
+					}catch(\ReflectionException $e){ //ないはずけど念のため
+						$sender->sendMessage("Player is not found");
+					}
 					$api->lvUp($name, $amount);
 					$level = $api->getLv($name);
 					$sender->sendMessage($lang->getReplacedText("command.lvup.success.sender",
@@ -54,7 +58,6 @@ class CommandProcessor {
 					if($config->get("broadcast-notice") === true){
 						$api->noticeAll($sender, $level);
 					}
-					return true;
 				}
 				return true;
 			case "toplv":

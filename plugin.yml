@@ -1,7 +1,7 @@
 name: MoneyLevel
 api: ["3.6"]
 main: mydeacy\moneylevel\MoneyLevel
-version: RE-CREATE2.0.0
+version: RE-CREATE2.0.1
 author: MyDeacy
 loadBefore: ["EconomyAPI"]
 depend: ["EconomyAPI"]

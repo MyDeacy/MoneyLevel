@@ -6,11 +6,11 @@ use mydeacy\moneylevel\MoneyLevel;
 
 class MoneyLevelUpEvent extends MoneyLevelEventBase {
 
-	protected $amount, $before;
+	protected $level, $before;
 
-	public function __construct(MoneyLevel $main, string $user, int $amount, int $before){
+	public function __construct(MoneyLevel $main, string $user, int $level, int $before){
 		parent::__construct($main, $user);
-		$this->amount = $amount;
+		$this->level = $level;
 		$this->before = $before;
 	}
 
@@ -18,14 +18,14 @@ class MoneyLevelUpEvent extends MoneyLevelEventBase {
 	 * @return int
 	 */
 	public function getChangedLv(): int{
-		return abs($this->before - $this->amount);
+		return $this->before - $this->level;
 	}
 
 	/**
 	 * @return int
 	 */
 	public function getLv(): int{
-		return $this->amount;
+		return $this->level;
 	}
 
 	/**
