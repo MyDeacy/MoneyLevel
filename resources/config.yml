@@ -1,0 +1,17 @@
+# MoneyLevel configuration
+language: "jpn" # "eng" uses message_eng.ini
+
+# Starting level for new players
+initial-level: 1
+
+# Money required per level-up
+up-required-money: 1000
+
+# Broadcast a notice on level-up
+broadcast-notice: true
+
+# Include OPs in /toplv ranking
+toplv-enable-op: true
+
+# Entries per page in /toplv
+toplv-per-page: 5

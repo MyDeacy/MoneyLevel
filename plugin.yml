@@ -1,9 +1,8 @@
 name: MoneyLevel
-api: ["3.6"]
-main: mydeacy\moneylevel\MoneyLevel
-version: RE-CREATE2.0.1
+api: ["5.0.0"]
+main: net\mydeacy\moneylevel\MoneyLevelPlugin
+version: 3.0.0
 author: MyDeacy
-loadBefore: ["EconomyAPI"]
 depend: ["EconomyAPI"]
 load: STARTUP
 description: "Economy level plugin"
@@ -30,14 +29,15 @@ commands:
     permission: moneylevel.setlv
 
 permissions:
+  moneylevel.lvup:
+    default: true
+  moneylevel.viewlv:
+    default: true
+  moneylevel.toplv:
+    default: true
+  moneylevel.lvhelp:
+    default: true
+  moneylevel.setlv:
+    default: op
   moneylevel.*:
     default: op
-    children:
-      moneylevel.lvup:
-        default: true
-      moneylevel.viewlv:
-        default: true
-      moneylevel.toplv:
-        default: true
-      moneylevel.lvhelp:
-        default: true
