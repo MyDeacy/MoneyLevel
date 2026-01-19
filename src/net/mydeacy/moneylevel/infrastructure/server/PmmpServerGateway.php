@@ -8,26 +8,52 @@ use pocketmine\player\Player;
 use pocketmine\Server;
 use function strtolower;
 
+/**
+ * PMMP server gateway.
+ */
 final class PmmpServerGateway implements ServerGateway {
-    private Server $server;
 
-    public function __construct(Server $server) {
-        $this->server = $server;
-    }
+	private Server $server;
 
-    public function broadcastMessage(string $message): void {
-        $this->server->broadcastMessage($message);
-    }
+	/**
+	 * Creates a new instance.
+	 *
+	 * @param Server $server Server.
+	 */
+	public function __construct(Server $server) {
+		$this->server = $server;
+	}
 
-    public function getPlayerExact(string $name): ?Player {
-        return $this->server->getPlayerExact($name);
-    }
+	/**
+	 * Broadcasts a message.
+	 *
+	 * @param string $message Message.
+	 */
+	public function broadcastMessage(string $message) :void {
+		$this->server->broadcastMessage($message);
+	}
 
-    public function getOpNameMap(): array {
-        $map = [];
-        foreach ($this->server->getOps()->getAll() as $name => $value) {
-            $map[strtolower((string) $name)] = true;
-        }
-        return $map;
-    }
+	/**
+	 * Returns a player by exact name.
+	 *
+	 * @param string $name Name.
+	 *
+	 * @return ?Player Value or null if not available.
+	 */
+	public function getPlayerExact(string $name) :?Player {
+		return $this->server->getPlayerExact($name);
+	}
+
+	/**
+	 * Returns op names as a lookup map.
+	 *
+	 * @return array<string, true>
+	 */
+	public function getOpNameMap() :array {
+		$map = [];
+		foreach ($this->server->getOps()->getAll() as $name => $value) {
+			$map[strtolower((string)$name)] = true;
+		}
+		return $map;
+	}
 }

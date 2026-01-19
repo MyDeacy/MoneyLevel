@@ -1,9 +1,9 @@
 name: MoneyLevel
-api: ["5.0.0"]
+api: [ "5.0.0" ]
 main: net\mydeacy\moneylevel\MoneyLevelPlugin
 version: 3.0.0
 author: MyDeacy
-depend: ["EconomyAPI"]
+depend: [ "EconomyAPI" ]
 load: STARTUP
 description: "Economy level plugin"
 commands:
